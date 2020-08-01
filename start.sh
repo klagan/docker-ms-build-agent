@@ -1,20 +1,6 @@
 #!/bin/bash
 set -e
 
-# install environment tools
-apt-get install wget
-
-# install dotnet 3.1
-wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-
-apt-get update; \
-apt-get install -y apt-transport-https && \
-apt-get update && \
-apt-get install -y dotnet-sdk-3.1
-
-# end of custom install
-
 if [ -z "$AZP_URL" ]; then
   echo 1>&2 "error: missing AZP_URL environment variable"
   exit 1
@@ -97,7 +83,6 @@ print_header "3. Configuring Azure Pipelines agent..."
   --pool "${AZP_POOL:-Local Agents}" \
   --work "${AZP_WORK:-_work}" \
   --replace \
-  --npm \
   --acceptTeeEula & wait $!
 
 # remove the administrative token before accepting work
