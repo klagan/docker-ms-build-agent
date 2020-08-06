@@ -29,7 +29,7 @@ docker exec -it <CONTAINER NAME/CONTAINER ID> <COMMAND>
 ## Stop all containers
 
 ```
-docker rm $(docker ps -a -q)
+docker stop $(docker ps -a -q)
 ```
 
 ## Remove all containers
