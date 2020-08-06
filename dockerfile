@@ -43,6 +43,9 @@ apt-get install -y apt-transport-https && \
 apt-get update && \
 apt-get install -y aspnetcore-runtime-3.1
 
+# az cli 2.0
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
 WORKDIR /azp
 
 COPY ./start.sh .
