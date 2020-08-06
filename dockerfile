@@ -53,6 +53,9 @@ apt-get install -y nodejs
 # newman
 RUN npm install -g newman
 
+# install GDI+
+RUN apt-get install libgdiplus -y
+
 WORKDIR /azp
 
 COPY ./start.sh .
