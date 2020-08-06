@@ -46,6 +46,13 @@ apt-get install -y aspnetcore-runtime-3.1
 # az cli 2.0
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
+#install npm
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -; \
+apt-get install -y nodejs
+
+# newman
+RUN npm install -g newman
+
 WORKDIR /azp
 
 COPY ./start.sh .
