@@ -25,3 +25,14 @@ docker attach --sig-proxy=false <CONTAINER NAME / CONTAINER ID>
 ```
 docker exec -it <CONTAINER NAME/CONTAINER ID> <COMMAND>
 ```
+
+## Stop all containers
+
+```
+docker rm $(docker ps -a -q)
+```
+
+## Remove all containers
+```
+docker rm $(docker ps -a -q)
+```
