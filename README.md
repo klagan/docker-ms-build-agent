@@ -36,3 +36,23 @@ docker stop $(docker ps -a -q)
 ```
 docker rm $(docker ps -a -q)
 ```
+
+## ENV vs ARG
+
+`ARG` is for build time input
+`ENV` is for run time input
+
+If, we need the **container** to accept different vales for environment variables then we would use `ENV`
+If, we need to set specific values for the **image** then we would use `ARG`
+
+`ARG` is baked into the image for every instance to use as a constant
+`ENV` is variable per container
+
+We can get the best of both worlds if we do something like this:
+
+```
+ARG myVar=someValue
+ENV myVar=$(myVar)
+```
+
+This allows us to set default constants on the `ARG`, but also override them by invoking `ENV`
